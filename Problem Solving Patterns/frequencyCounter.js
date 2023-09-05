@@ -103,3 +103,43 @@ function validAnagram(str1, str2) {
 }
 
 console.log("validAnagram FUNCTION", validAnagram("iceman", "cinema"));
+
+// areThereDuplicates??
+
+// Implement a function called, areThereDuplicates which accepts
+// a variable number of arguments, and checks whether there are
+// any duplicates among the arguments passed in.
+
+// function areThereDuplicates() {
+//   let lookup = {};
+
+//   for (let val of arguments) {
+//     let key = arguments[val];
+//     lookup[key] ? (lookup[key] += 1) : (lookup[key] = 1);
+//   }
+
+//   for (let keys in lookup) {
+//     if (lookup[keys] > 1) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// ONE LOOP SOLUTION
+
+function areThereDuplicates() {
+  const frequencyCounter = {};
+
+  for (let i = 0; i < arguments.length; i++) {
+    const item = arguments[i];
+    if (frequencyCounter[item]) {
+      return true;
+    }
+    frequencyCounter[item] = 1;
+  }
+
+  return false;
+}
+
+console.log("areThereDuplicates FUNCTION", areThereDuplicates(1, 2, 3));
